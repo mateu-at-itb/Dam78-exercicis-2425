@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Exercicis DAMv78</string>
+    <string name="hello_message">Hello!</string>
 </resources>
