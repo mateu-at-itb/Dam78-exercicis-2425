@@ -41,7 +41,7 @@ class SettingsViewModel() : ViewModel(){
     val currentQuestionsPerGame =
         mutableStateOf(TrivialSettingsManager.get().questionsPerGame)
     fun saveSettings(){
-        val settingsFromInputs = TrivialSettings()
+        val settingsFromInputs = TrivialSettings(TODO(), TODO())
         TrivialSettingsManager.update(settingsFromInputs)
     }
 }
