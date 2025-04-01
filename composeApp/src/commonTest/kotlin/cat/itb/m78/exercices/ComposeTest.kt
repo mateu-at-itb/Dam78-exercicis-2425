@@ -14,32 +14,16 @@ import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.runComposeUiTest
+import cat.itb.m78.exercices.p2.reservoir.ReservoirsApi
+import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 
 @OptIn(ExperimentalTestApi::class)
 class ComposeTest {
 
     @Test
-    fun simpleCheck() = runComposeUiTest {
-        setContent {
-            var txt by remember { mutableStateOf("Go") }
-            Column {
-                Text(
-                    text = txt,
-                    modifier = Modifier.testTag("t_text")
-                )
-                Button(
-                    onClick = { txt += "." },
-                    modifier = Modifier.testTag("t_button")
-                ) {
-                    Text("click me")
-                }
-            }
-        }
-
-        onNodeWithTag("t_button").apply {
-            repeat(3) { performClick() }
-        }
-        onNodeWithTag("t_text").assertTextEquals("Go...")
+    fun simpleCheck() = runTest {
+        //println(ReservoirsApi.list())
+        println(ReservoirsApi.detail("Embassament de Siurana (Cornudella de Montsant)"))
     }
 }

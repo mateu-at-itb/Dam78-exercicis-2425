@@ -1,0 +1,11 @@
+CREATE TABLE message (
+  id INTEGER PRIMARY KEY NOT NULL,
+  text TEXT NOT NULL
+);
+
+
+selectAll:
+SELECT * FROM message;
+
+insert:
+INSERT INTO message(text) VALUES (?);
