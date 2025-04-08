@@ -11,12 +11,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import kotlin.time.Duration.Companion.seconds
 
 class MessagesViewModel : ViewModel(){
     val newMessageText = mutableStateOf("")
     val messages = database.myTableQueries.selectAll().asFlow().mapToList(Dispatchers.IO)
-
+    
     init {
         viewModelScope.launch {
             repeat(10){
